@@ -5,7 +5,15 @@ Skeleton copy_skeleton_at(
 {
   /////////////////////////////////////////////////////////////////////////////
   // Replace with your code
-  Skeleton copy = skeleton;
-  return copy;
+  Skeleton s = skeleton; //copy of skeleton
+  for (int i = 0; i < skeleton.size(); ++i) {
+     // joint angles set to A
+      s[i].xzx.x() = A(i * 3);
+      s[i].xzx.y() = A(i * 3 + 1);
+      s[i].xzx.z() = A(i * 3 + 2);
+  }
+  return s;
+
+ 
   /////////////////////////////////////////////////////////////////////////////
 }

@@ -10,6 +10,18 @@ double line_search(
 {
   /////////////////////////////////////////////////////////////////////////////
   // Replace with your code
+
+  // equation from line_search slide and tut slide
+  double sigma = max_step;
+  
+for (int i=0; i<= 20; i++){
+    Eigen::VectorXd z1 = z - sigma * dz; //a + delta * a
+    proj_z(z1);
+    if (f(z1) < f(z)){ // if the energy is decreasing
+      return sigma; 
+    }
+    sigma/=2; // decrease by 1/2 
+  }
   return 0;
   /////////////////////////////////////////////////////////////////////////////
 }
